@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Verifica Perfil Cliente - Unico Aparelhos"
+    when
+        v : ValidationData( multiplosAparelhos == true , key : "VerificaPerfilClienteUnicoAparelho", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Verifica Perfil Cliente - Multiplo Aparelho"
+    when
+        v : ValidationData( multiplosAparelhos == false , key : "VerificaPerfilClienteMultiplosAparelhos", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

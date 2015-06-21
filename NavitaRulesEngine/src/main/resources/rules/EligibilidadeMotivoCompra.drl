@@ -1,0 +1,47 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+import java.util.Date;
+
+rule "Elegibilidade Motivo Compra - Vencimento Comodato"
+    when
+        v : ValidationData( vencimentoComodato < limitDateLending, key : "ElegibilidadeMotivoCompraVencimentoComodato", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );         
+end 
+
+rule "Elegibilidade Motivo Compra - Perda"
+    when
+    	
+        v : ValidationData( motivoDeCompra contains "PERDA", key : "ElegibilidadeMotivoCompraPerda", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end 
+ 
+rule "Elegibilidade Motivo Compra - Furto"
+    when
+        v : ValidationData( motivoDeCompra contains "FURTO", key : "ElegibilidadeMotivoCompraFurto", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Elegibilidade Motivo Compra - Novo Aparelho"
+    when
+        v : ValidationData( motivoDeCompra contains "NOVO", key : "ElegibilidadeMotivoCompraNovo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Elegibilidade Motivo Compra - Roubo"
+    when
+        v : ValidationData( motivoDeCompra contains "ROUBO", key : "ElegibilidadeMotivoCompraRoubo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Elegibilidade Motivo Compra - Promocao Cargo"
+    when
+        v : ValidationData( motivoDeCompra contains "CARGO", key : "ElegibilidadeMotivoCompraCargo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

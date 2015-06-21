@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="NavitaRulesEngine">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="Drools Library.libraryclasspath">
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.guvnor.eclipse.webdav_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/poi-ooxml.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.drools.eclipse_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/xmlpull.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/drools-templates.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.guvnor.eclipse.webdav.source_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/jsr94.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.guvnor.tools.source_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/drools-core.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/jbpm-flow.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/antlr-runtime.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/poi.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/jbpm-flow-builder.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/xpp3_min.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/junit.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/drools-decisiontables.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/slf4j-api.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/kie-api.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/drools-jsr94.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.jbpm.eclipse_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.guvnor.tools_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/xstream.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/jbpm-bpmn2.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/mvel2.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.jboss.tools.runtime.drools.detector.source_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.jbpm.eclipse.source_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/protobuf-java.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.jboss.tools.runtime.drools.detector_6.2.0.Final.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.eclipse.jdt.core_3.9.2.v20140114-1555.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/drools-compiler.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/kie-internal.jar"/>
+        <pathelement location="../../Drools-6.2.0/droolsjbpm-tools-distribution-6.2.0.Final/binaries/org.drools.updatesite/plugins/org.drools.eclipse.source_6.2.0.Final.jar"/>
+    </path>
+    <path id="NavitaRulesEngine.classpath">
+        <pathelement location="target"/>
+        <path refid="Drools Library.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target"/>
+        <copy includeemptydirs="false" todir="target">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target">
+            <fileset dir="src/main/resources">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <src path="src/main/resources"/>
+            <classpath refid="NavitaRulesEngine.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>

@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+ 
+rule "Elegibilidade Perfil Grupo"
+    when
+        v : ValidationData( grupo == false , key : "ElegibilidadePerfilGrupo", value : "O usuario nao tem acesso a esta funcionalidade" )
+    then        
+        v.setMapReturnRulesValidation( key , value );  
+end
+
+rule "Elegibilidade Perfil Produto" 
+    when
+        v : ValidationData( produto == null , key : "ElegibilidadePerfilProduto", value : "Nao existem produtos associados ao seu perfil" )
+    then    	
+   		v.setMapReturnRulesValidation( key , value );
+end

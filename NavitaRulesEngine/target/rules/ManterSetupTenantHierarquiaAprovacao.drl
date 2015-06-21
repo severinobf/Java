@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Manter Setup Tenant Hierarquia Aprovacao - Aprovar"
+    when
+        v : ValidationData( regrasHierarquiaAprovacao == "SIM" , key : "ManterSetupTenantElegibilidadeAlteracao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Manter Setup Tenant Hierarquia Aprovacao - Concluir"
+    when
+        v : ValidationData( regrasHierarquiaAprovacao == "SIM" , key : "ManterSetupTenantElegibilidadeAlteracao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

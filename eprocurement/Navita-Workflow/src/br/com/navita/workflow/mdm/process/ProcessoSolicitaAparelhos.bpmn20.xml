@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="Navita">
+    <process id="processoSolicitaAparelhos" name="Processo Solicita Aparelhos" isExecutable="true">
+        <documentation>Processo Solicita Aparelhos.</documentation>
+        <startEvent id="startevent2" name="Start" activiti:initiator="initiator">
+            <extensionElements>  
+                <activiti:formProperty id="approver" name="Aprovador" value="${approver}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="idProcesso" name="ID do Processo" value="${idProcesso}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="duedate" name="Data de Solicitacao" value="${duedate}" type="date" datePattern="dd-MM-yyyy hh:mm" required="true"></activiti:formProperty>
+                <activiti:formProperty id="dataDeVencimentoComodato" name="Vencimento do Comodato" value="${dataDeVencimentoComodato}" type="date" datePattern="dd-MM-yyyy" required="true"></activiti:formProperty>
+                <activiti:formProperty id="pessoaSolicitante" name="Solicitante" value="${pessoaSolicitante}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="motivoDeCompra" name="Motivo de Compra" value="${motivoDeCompra}" type="string" variable="motivoDeCompra" required="true"></activiti:formProperty>
+                <activiti:formProperty id="pessoaDestinataria" name="Destinatario" value="${pessoaDestinataria}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="grupo" name="grupo" value="${grupo}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="idAparelhoOuServico" value="${idAparelhoOuServico}" name="Codigo Aparelho Ou Servico" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="descricaoAparelhoOuServico" name="Descricao Aparelho ou Servico" value="${descricaoAparelhoOuServico}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="caminhoDoDocumentoAnexo" name="Documento Anexo" value="${caminhoDoDocumentoAnexo}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="status" name="Status" value="${status}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="nomeOperadora" name="Operadora" value="${nomeOperadora}" type="string" required="true"></activiti:formProperty>
+                <activiti:formProperty id="tenant" name="tenant" value="${tenant}" type="string" required="true"></activiti:formProperty>
+            </extensionElements>
+        </startEvent>
+        <userTask id="usertask2" name="Solicitar" activiti:assignee="${approver}" activiti:candidateGroups="Management" activiti:dueDate="${duedate}">
+            <documentation>Solicitacao de aprovacao de aparelho criada por ${initiator} Motivo: ${motivoDeCompra}</documentation>
+            <extensionElements>
+                <activiti:formProperty id="approved" name="Decision" type="enum" required="true">
+                    <activiti:value id="true" name="Approvado"></activiti:value>
+                    <activiti:value id="false" name="Cancelado"></activiti:value>
+                </activiti:formProperty>
+                <activiti:formProperty id="observacoes" name="Observacoes" type="string" required="true"></activiti:formProperty>
+            </extensionElements>
+        </userTask>
+        <endEvent id="endevent2" name="End"></endEvent>
+        <sequenceFlow id="flow3" sourceRef="startevent2" targetRef="usertask2"></sequenceFlow>
+        <sequenceFlow id="flow4" sourceRef="usertask2" targetRef="usertask3"></sequenceFlow>
+        <userTask id="usertask3" name="Aprovar" activiti:assignee="${initiator}">
+            <documentation>Tarefa Completada por ${approver}: ${(approved.equals('true')) ? 'Aprovado' : 'Cancelado'}</documentation>
+            <extensionElements>
+                <activiti:formProperty id="motivation" name="Motivation" type="string" writable="false"></activiti:formProperty>
+            </extensionElements>
+        </userTask>
+        <serviceTask id="enviaEmailOperadora" name="Envia Email Operadora" activiti:class="EnviarEmailOperadora"></serviceTask>
+        <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
+        <sequenceFlow id="flow5" sourceRef="usertask3" targetRef="parallelgateway1"></sequenceFlow>
+        <sequenceFlow id="flow6" sourceRef="parallelgateway1" targetRef="endevent2"></sequenceFlow>
+        <sequenceFlow id="flow8" sourceRef="enviaEmailOperadora" targetRef="endevent2"></sequenceFlow>
+        <sequenceFlow id="flow9" sourceRef="parallelgateway1" targetRef="enviaEmailOperadora"></sequenceFlow>
+        <textAnnotation id="textannotation1">
+            <text>Usuario envia solicitacao ao gestor para aprovacao.</text>
+        </textAnnotation>
+        <textAnnotation id="textannotation2">
+            <text>Gestor recebe tarefa e procede co aprovacao.</text>
+        </textAnnotation>
+        <textAnnotation id="textannotation3">
+            <text>Pedido enviado para a operadora</text>
+        </textAnnotation>
+        <textAnnotation id="textannotation4">
+            <text>Fim do processo Inicial</text>
+        </textAnnotation>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_processoSolicitaAparelhos">
+        <bpmndi:BPMNPlane bpmnElement="processoSolicitaAparelhos" id="BPMNPlane_processoSolicitaAparelhos">
+            <bpmndi:BPMNShape bpmnElement="startevent2" id="BPMNShape_startevent2">
+                <omgdc:Bounds height="55.0" width="55.0" x="50.0" y="152.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+                <omgdc:Bounds height="55.0" width="105.0" x="170.0" y="152.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="endevent2" id="BPMNShape_endevent2">
+                <omgdc:Bounds height="55.0" width="55.0" x="760.0" y="152.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+                <omgdc:Bounds height="55.0" width="105.0" x="340.0" y="152.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="enviaEmailOperadora" id="BPMNShape_enviaEmailOperadora">
+                <omgdc:Bounds height="81.0" width="105.0" x="601.0" y="220.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
+                <omgdc:Bounds height="40.0" width="40.0" x="490.0" y="159.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
+                <omgdc:Bounds height="71.0" width="100.0" x="173.0" y="72.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
+                <omgdc:Bounds height="50.0" width="100.0" x="356.0" y="93.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="textannotation3" id="BPMNShape_textannotation3">
+                <omgdc:Bounds height="50.0" width="100.0" x="610.0" y="322.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="textannotation4" id="BPMNShape_textannotation4">
+                <omgdc:Bounds height="50.0" width="100.0" x="750.0" y="93.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+                <omgdi:waypoint x="105.0" y="179.0"></omgdi:waypoint>
+                <omgdi:waypoint x="170.0" y="179.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+                <omgdi:waypoint x="275.0" y="179.0"></omgdi:waypoint>
+                <omgdi:waypoint x="340.0" y="179.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+                <omgdi:waypoint x="445.0" y="179.0"></omgdi:waypoint>
+                <omgdi:waypoint x="490.0" y="179.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+                <omgdi:waypoint x="530.0" y="179.0"></omgdi:waypoint>
+                <omgdi:waypoint x="760.0" y="179.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+                <omgdi:waypoint x="706.0" y="260.0"></omgdi:waypoint>
+                <omgdi:waypoint x="787.0" y="260.0"></omgdi:waypoint>
+                <omgdi:waypoint x="787.0" y="207.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+                <omgdi:waypoint x="510.0" y="199.0"></omgdi:waypoint>
+                <omgdi:waypoint x="510.0" y="260.0"></omgdi:waypoint>
+                <omgdi:waypoint x="601.0" y="260.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Manter Setup Tenant Empresa - Grupo"
+    when
+        v : ValidationData( retiraOperadoraListaContrato == true , key : "ManterSetupTenantEmpresaGrupo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Manter Setup Tenant Empresa - Precificacao"
+    when
+        v : ValidationData( retiraOperadoraListaContrato == false , key : "ManterSetupTenantEmpresaPrecificacao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

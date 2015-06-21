@@ -1,0 +1,25 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Gravar Setup Tenant - Inclusao"
+    when
+        v : ValidationData( regrasCatalogo == "INCLUSAO" , key : "GravarSetupTenantInclusao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Gravar Setup Tenant - Edicao"
+    when
+        v : ValidationData( regrasCatalogo == "EDICAO" , key : "GravarSetupTenantEdicao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Gravar Setup Tenant - Aprovar Catalogo"
+    when
+        v : ValidationData( regrasCatalogo == "APROVAR_CATALOGO" , key : "GravarSetupTenantAprovarCatalogo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+

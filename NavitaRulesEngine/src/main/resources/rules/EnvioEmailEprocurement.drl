@@ -1,0 +1,38 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+ 
+rule "Envio Email E-Procurement - Numero Pedido Aprovado"
+    when
+        v : ValidationData( enviarRespostaEmailPedido == "APROVADO", key : "EnvioEmailEProcurementNumeroPedidoAprovado", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Envio Email E-Procurement - Numero Pedido Reprovado"
+    when
+        v : ValidationData( enviarRespostaEmailPedido == "REPROVADO", key : "EnvioEmailEProcurementNumeroPedidoReprovado", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Envio Email E-Procurement - Numero Pedido - Novo Pedido"
+    when
+        v : ValidationData( enviarRespostaEmailPedido == "NOVO", key : "EnvioEmailEProcurementNumeroPedidoNovoPedido", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Envio Email E-Procurement - Numero Pedido - Item Indidponivel - Numero Item Pedido"
+    when
+        v : ValidationData( enviarRespostaEmailPedido == "INDISPONIVEL", key : "EnvioEmailEProcurementNumeroPedidoItemIndisponivel", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Envio Email E-Procurement - Numero Pedido - Entregue"
+    when
+        v : ValidationData( enviarRespostaEmailPedido == "ENTREGUE", key : "EnvioEmailEProcurementNumeroPedidoEntregue", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

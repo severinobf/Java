@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NavitaeProcurementModel -->
+<project default="NavitaeProcurementModel.jar" name="Navita e-Procurement design model" basedir=".">
+	<target name="configura_variaveis" description="configura as variaveis necessarias">
+		<!-- diretório onde se localiza o projeto que está sendo construído -->
+		<property name="workspace" value="." />
+		<!-- diretório raiz da aplicação -->
+		<property name="rootdir" value="${workspace}/target/classes" />
+		<!-- diretório das bibliotecas em uso por este módulo -->
+		<property name="libdir" value="${workspace}/lib" />
+		<!-- diretório do tomcat para deployment -->
+		<property name="tomcat_dir" value="/var/apache-mule-7.0.53/sharedlibs" />
+	</target>
+	<!-- cria o NavitaeProcurementModel.jar -->
+	<target name="NavitaeProcurementModel.jar" description="cria o .jar" depends="configura_variaveis">
+		<jar destfile="NavitaeProcurementModel.jar">
+			<zipfileset dir="${rootdir}" casesensitive="yes">
+				<include name="**/*.*" />
+			</zipfileset>
+		</jar>
+		<!--copy overwrite="true" todir="${tomcat_dir}">
+			<fileset dir="." includes="NavitaeProcurementModel.jar" />
+		</copy -->
+		<!-- echo message="Transfering ${project.artifactId}.war file to Amazon" />
+		<scp todir="ec2-user:@54.94.243.140:/home/ec2-user/downloads"
+													keyfile="/home/severino/work/Ambev/ambiente/AmbevMapReduce-CRM.pem">
+													<fileset dir="${workspace}">
+														<include name="NavitaeProcurementModel.war" />
+													</fileset>
+		</scp -->
+	</target>
+</project>

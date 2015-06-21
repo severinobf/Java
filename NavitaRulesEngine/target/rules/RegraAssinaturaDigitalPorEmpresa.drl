@@ -1,0 +1,20 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Regra Para Assinatura Digital por Empresa - Multa"
+        //conditions
+		// - Numero de meses do comodato
+		// - Valor do Aparelho
+		// - Associada a linha da empresa/usuario
+		// - numero de eses decorrido compra aparelhos associado linha
+    when
+        v : ValidationData( aceiteAssinaturaDigital == true , key : "RegraParaAssinaturaDigitalEmpresaMulta", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+
+
+
+end
+
+

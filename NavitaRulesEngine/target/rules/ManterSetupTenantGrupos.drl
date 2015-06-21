@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Manter Setup Tenant Grupos - Alteracao"
+    when
+        v : ValidationData( regrasCatalogoEmpresaGrupos == true , key : "ManterSetupTenantGruposAlteracao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Manter Setup Tenant Grupos - Alteracao / Inclusao"
+    when
+        v : ValidationData( regrasCatalogoEmpresaGrupos == true , key : "ManterSetupTenantGruposAlteracaoInclusao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

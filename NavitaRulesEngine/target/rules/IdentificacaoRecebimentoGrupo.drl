@@ -1,0 +1,10 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Identificado Recebimento Grupo"
+    when
+        v : ValidationData( pessoaSolicitante == pessoaResponsavel, key : "IdentificadoRecebimentoGrupo", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

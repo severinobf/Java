@@ -1,0 +1,16 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Comunicacao Pedido Operadora - SIM"
+    when
+        v : ValidationData( InformarCompraOperadora == true , key : "ComunicacaoPedidoOperadora", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+rule "Comunicacao Pedido Operadora - NAO"
+    when
+        v : ValidationData( InformarCompraOperadora == false , key : "ComunicacaoPedidoOperadora", value : "NAO" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

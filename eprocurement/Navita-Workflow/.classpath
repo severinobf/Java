@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/bsh-2.0b4.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/cassandra-driver-core-2.0.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/cassandra-driver-dse-2.0.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/commons-dbcp2-2.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/commons-pool2-2.4.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/gson-2.3.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/guava-16.0.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/jcommander-1.27.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/log4j-1.2.17.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/lz4-1.2.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/metrics-core-3.0.2.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/mysql-connector-java-5.1.35-bin.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/netty-3.9.0.Final.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/slf4j-log4j12-1.7.6.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/sharedlibs/snappy-java-1.0.5.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/config-1.2.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/feign-core-8.1.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/feign-jackson-8.1.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/feign-slf4j-8.1.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/jackson-annotations-2.5.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/jackson-core-2.5.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/jackson-databind-2.5.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/jackson-datatype-joda-2.5.2.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/jackson-module-scala_2.11-2.5.1.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/joda-convert-1.6.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/joda-time-2.7.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/navita-domain-scala_2.11-1.0.5.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/navita-inventory-feign_2.11-1.0.10.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/navita-invoice-feign_2.11-1.0.5.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/paranamer-2.6.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/play-datacommons_2.11-2.3.8.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/play-functional_2.11-2.3.8.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/play-iteratees_2.11-2.3.8.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/play-json_2.11-2.3.8.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/play-json-variants_2.11-1.1.0.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/scala-library-2.11.6.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/scala-reflect-2.11.4.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/scala-stm_2.11-0.7.jar"/>
+	<classpathentry kind="var" path="TOMCAT_NAVITA_HOME/navita-deps/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

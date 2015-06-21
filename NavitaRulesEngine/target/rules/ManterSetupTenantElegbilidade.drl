@@ -1,0 +1,17 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Manter Setup Tenant Elegibilidade - Alteracao"
+    when
+        v : ValidationData( regrasCatalogoEmpresaElegibilidade == "SIM" , key : "ManterSetupTenantElegibilidadeAlteracao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
+
+rule "Manter Setup Tenant Elegibilidade - Alteracao / Inclusao"
+    when
+        v : ValidationData( regrasCatalogoEmpresaElegibilidade == "NAO" , key : "ManterSetupTenantElegibilidadeAlteracaoInclusao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end

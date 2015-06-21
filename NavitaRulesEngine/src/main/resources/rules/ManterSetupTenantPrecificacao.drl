@@ -1,0 +1,10 @@
+package br.com.navita.rules.engine
+ 
+import br.com.navita.rules.engine.RulesProcessor.ValidationData;
+
+rule "Manter Setup Tenant Precificacao - Alteracao / Inclusao"
+    when
+        v : ValidationData( regrasCatalogoEmpresaPrecificacao == "SIM" , key : "ManterSetupTenantPrecificacaoAlteracaoInclusao", value : "SIM" )
+    then
+        v.setMapReturnRulesValidation( key , value );        
+end
